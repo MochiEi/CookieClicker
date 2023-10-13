@@ -173,7 +173,7 @@ void Main()
 			if (circle[i].leftClicked())
 			{
 				size[i] = 1.3;
-				num[i] += 10000;
+				num[i] += 1;
 			}
 
 			// 表示サイズを回復する
