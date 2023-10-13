@@ -100,7 +100,7 @@ void Main()
 	{
 
 		ClearPrint();
-		Print << n;
+		Print << cps;
 
 
 		if (n > -4000 && KeyRight.down())
@@ -127,24 +127,26 @@ void Main()
 		{
 			// 毎秒の生産量 (cookies per second) を計算する
 			cps[i] = (farmCount[i] + factoryCount[i] * 10 + countryCount[i] * 100 + planetCount[i] * 1000);
+		}
 
-			// 0.1 秒以上蓄積していたら
-			if (0.1 <= accumulatedTime)
+		// 0.1 秒以上蓄積していたら
+		if (0.1 <= accumulatedTime)
+		{
+			accumulatedTime -= 0.1;
+
+			// 0.1 秒分の生産を加算する
+			for (int i = 0; i < 6; i++)
 			{
-				accumulatedTime -= 0.1;
-
-				// 0.1 秒分の生産を加算する
 				num[i] += (cps[i] * 0.1);
 			}
 		}
-
 		// 背景を描く
 		back[0].draw(Arg::left = HSV{ 0 }, Arg::right = HSV{ 35 });
 		back[1].draw(Arg::left = HSV{ 35 }, Arg::right = HSV{ 65 });
-		back[2].draw(Arg::left = HSV{ 65 }, Arg::right = HSV{ 150 });
-		back[3].draw(Arg::left = HSV{ 150 }, Arg::right = HSV{ 280 });
-		back[4].draw(Arg::left = HSV{ 280 }, Arg::right = HSV{ 310 });
-		back[5].draw(Arg::left = HSV{ 310 }, Arg::right = HSV{ 340 });
+		back[2].draw(Arg::left = HSV{ 65 }, Arg::right = HSV{ 160 });
+		back[3].draw(Arg::left = HSV{ 160 }, Arg::right = HSV{ 265 });
+		back[4].draw(Arg::left = HSV{ 265 }, Arg::right = HSV{ 300 });
+		back[5].draw(Arg::left = HSV{ 300 }, Arg::right = HSV{ 340 });
 
 		for (int i = 0; i < 6; i++)
 		{
