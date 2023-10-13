@@ -99,10 +99,6 @@ void Main()
 	while (System::Update())
 	{
 
-		ClearPrint();
-		Print << cps;
-
-
 		if (n > -4000 && KeyRight.down())
 		{
 			n -= 800; for (int i = 0; i < 6; i++)
